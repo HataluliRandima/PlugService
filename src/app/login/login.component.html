@@ -1,0 +1,41 @@
+
+<br>
+<div class="form-container mat-elevation-z5">
+    
+    <div class="center">
+        <a><img width="100px" height="100px" src="assets/login.png"  alt=""></a>
+    </div>
+      
+
+    <h1>Login</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <input matInput placeholder="Email address" formControlName="email"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+        placeholder="Enter Your Email" />
+        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+            <div *ngIf="f['email'].errors?.['required']">Email is required</div>
+            <div *ngIf="f['email'].errors?.['email']">Email is invalid</div>
+          </div>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password" formControlName="password" 
+        class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"/>
+          <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+            <div *ngIf="f['password'].errors?.['required']">Password is required</div>
+            <div *ngIf="f['password'].errors?.['minlength']">
+              Password must be at least 6 characters
+            </div>
+            <div *ngIf="f['password'].errors?.['maxlength']">
+              Username must not exceed 40 characters
+            </div>
+          </div>
+      </mat-form-field>
+      <div class="center margin-top">
+          <button [disabled]="!form.valid " type="submit" mat-raised-button color="primary">Login</button>
+      </div>
+      <span class="center margin-top">New to our platform? <a class="sign-up-link" routerLink="../register">Sign up!</a></span>
+    </form>
+  </div>
