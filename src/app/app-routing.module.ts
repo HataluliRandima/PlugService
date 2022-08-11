@@ -8,6 +8,7 @@ import { BookingComponent } from './booking/booking.component';
 import { ContactComponent } from './contact/contact.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { ConfrimComponent } from './confrim/confrim.component';
+import { TrackbookingComponent } from './trackbooking/trackbooking.component';
 
 const routes: Routes = [
   { path:'home', component:HomeComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path : 'contact', component:ContactComponent},
   { path : 'myprofile', component:MyprofileComponent},
    { path : 'confirm', component:ConfrimComponent},
+   {path: 'track',component:TrackbookingComponent},
 ];
 
 @NgModule({

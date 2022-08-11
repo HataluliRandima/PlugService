@@ -12,17 +12,6 @@
 
    
           <mat-form-field>
-            <input matInput type="text" placeholder="Full Name" formControlName="fullname"
-            class="form-control"
-            [ngClass]="{ 'is-invalid': submitted && f['fullname'].errors }"
-            placeholder="Enter your Full Name" />
-            <div *ngIf="submitted && f['fullname'].errors" class="invalid-feedback">
-                <div *ngIf="f['fullname'].errors?.['required']">Fullname is required</div>
-              </div>
-          </mat-form-field>
-
-
-          <mat-form-field>
             <input matInput placeholder="User Name" formControlName="username"
             class="form-control"
             [ngClass]="{ 'is-invalid': submitted && f['username'].errors }"
@@ -37,7 +26,15 @@
                 </div>
               </div>
           </mat-form-field>
-
+          <mat-form-field>
+            <input matInput type="text" placeholder="Surname" formControlName="Surname"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['Surname'].errors }"
+            placeholder="Enter your SurName" />
+            <div *ngIf="submitted && f['Surname'].errors" class="invalid-feedback">
+                <div *ngIf="f['Surname'].errors?.['required']">Surname is required</div>
+              </div>
+          </mat-form-field>
 
       <mat-form-field>
         <input matInput placeholder="Email address" formControlName="email"

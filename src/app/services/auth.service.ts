@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private httpparams : HttpParams) { }
 
   userLogin (data: any)
   {
@@ -18,4 +18,6 @@ export class AuthService {
   {
     return this.http.post(`${environment.apiUrl}/Users/register`,data);
   }
+
+ 
 }

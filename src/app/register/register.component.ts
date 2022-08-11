@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
 
     this.form = this.formBuilder.group(
       {
-        fullname: ['', Validators.required],
+       
         username: [
           '',
           [
@@ -34,6 +34,7 @@ export class RegisterComponent implements OnInit {
             Validators.maxLength(20)
           ]
         ],
+        Surname: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
         contact: ['',[Validators.required,Validators.minLength(10)]],
         address: ['',Validators.required],
@@ -75,8 +76,9 @@ export class RegisterComponent implements OnInit {
 
     console.log(JSON.stringify(this.form.value, null, 2));
     let data = {
-      "userFullname": this.form.value.fullname,
+      
       "userUsername":this.form.value.username ,
+      "userSurname": this.form.value.Surname,
       "userEmail": this.form.value.email,
       "userContactdetails": this.form.value.contact ,
       "userAddress": this.form.value.address ,

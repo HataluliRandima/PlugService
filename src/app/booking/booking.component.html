@@ -137,7 +137,7 @@
                   <div class="row">
                     <div class="form-group mb-3 col-xs-12 col-sm-6">
                       <label for="category">Category of merchant</label>
-                      <select class="custom-select tm-select-accountss" id="category">
+                      <select class="custom-select tm-select-accountss" id="category" >
                         <option value="null" selected>Select Category</option>
                         <option value="1">GATE MAKER</option>
                         <option value="2">TILING</option>
@@ -152,11 +152,11 @@
                     </div>
                     <div class="form-group mb-3 col-xs-12 col-sm-6">
                       <label for="city">Location</label>
-                      <input id="autocomplete" name="city" type="text" placeholder="Enter your address" class="form-control validate" data-large-mode="true" />
+                      <input id="autocomplete" name="city" type="text" placeholder="Enter your address" class="form-control validate" data-large-mode="true" [(ngModel)]="locationname"/>
                     </div>
                         <div class="form-group mb-3 col-xs-12 col-sm-6">
                       <label for="area">Area</label>
-                      <input id="locality" name="area" type="text" class="form-control validate" data-large-mode="true" />
+                      <input id="locality" name="area" type="text" class="form-control validate" data-large-mode="true"[(ngModel)]="typelo"/>
                     </div>
                   </div>
   
@@ -179,7 +179,7 @@
              
               <br><br>
               <div class="col-12">
-                <button id="btnAddProgram" type="button" class="btn btn-primary btn-block text-uppercase">Search for Merchant</button>
+                <button id="btnAddProgram" type="button" class="btn btn-primary btn-block text-uppercase" (click)="Searchcity()">Search for Merchant</button>
                   
               </div>
    
@@ -212,14 +212,15 @@
                               <a href="job-detail.html"><img src="assets/img/icon-9.png" class="img-responsive" alt="" /></a>
                           </div>
                       </div>
-                      <div class="col-md-6 col-sm-5">
+                      <div *ngFor="let met of mercs" class="col-md-6 col-sm-5">
                           <div class="brows-job-position">
-                              <a href="job-apply-detail.html"><h2>ROOFING</h2></a>
-                              <h4>Musiki Ravhuanzzo</h4>
+                              <a href="job-apply-detail.html"><h2>{{met.merchType}}</h2></a>
+                              <h4>{{ met.merchSurname}}</h4>
                               <p>
                                   <span>Google</span><span class="brows-job-sallery"><i class="fa fa-money"></i>$810 - 900</span>
                                  
                               </p>
+                              <p>{{met.merchId}}</p>
                           </div>
                       </div>
                       <div class="col-md-3 col-sm-3">
