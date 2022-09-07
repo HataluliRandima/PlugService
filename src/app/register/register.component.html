@@ -60,8 +60,8 @@
 
 
       <mat-form-field>
-        <input matInput placeholder="Address" formControlName="address"
-        class="form-control"
+        <input matInput #addresstext  placeholder="Address" formControlName="address" autocomplete="off"
+        class="form-control" id="address"
         [ngClass]="{ 'is-invalid': submitted && f['address'].errors }"
         placeholder="Enter Your Address" />
         <div *ngIf="submitted && f['address'].errors" class="invalid-feedback">
@@ -69,6 +69,27 @@
           </div>
       </mat-form-field>
 
+
+      <mat-form-field>
+        <input matInput placeholder="City" formControlName="city"
+        class="form-control" id="city"
+        [ngClass]="{ 'is-invalid': submitted && f['city'].errors }"
+        placeholder="Enter Your City" />
+        <div *ngIf="submitted && f['city'].errors" class="invalid-feedback">
+            <div *ngIf="f['city'].errors?.['required']">City is required</div>
+          </div>
+      </mat-form-field>
+
+
+      <mat-form-field>
+        <input matInput placeholder="province" formControlName="province"
+        class="form-control" id="province"
+        [ngClass]="{ 'is-invalid': submitted && f['province'].errors }"
+        placeholder="Enter Your province" />
+        <div *ngIf="submitted && f['province'].errors" class="invalid-feedback">
+            <div *ngIf="f['address'].errors?.['required']">Province is required</div>
+          </div>
+      </mat-form-field>
 
       <mat-form-field>
         <input matInput type="Password" placeholder="Password" formControlName="password" 

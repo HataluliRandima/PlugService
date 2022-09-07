@@ -14,9 +14,11 @@ export class LoginComponent implements OnInit {
   form!: FormGroup;
   submitted = false;
 
- 
+  invalidLogin!: boolean;
 
-  constructor(private formBuilder: FormBuilder,private router : Router,private authService : AuthService,   private route: ActivatedRoute,) { }
+  constructor(private formBuilder: FormBuilder,private router : Router,private authService : AuthService,   private route: ActivatedRoute,) { 
+    localStorage.clear();
+  }
 
   ngOnInit(): void {
 
@@ -50,15 +52,21 @@ export class LoginComponent implements OnInit {
     }
   
     console.log(JSON.stringify(this.form.value, null, 2));
+
     let data = {
-        "userEmail": this.form.value.email,
+       "userEmail": this.form.value.email,
        "userPassword": this.form.value.password
     }
+
     this.authService.userLogin(data).subscribe((res : any) => {
+      const token = (<any>res).token;
+      localStorage.setItem("jwt",token);
+      this.invalidLogin = false;
       console.log("Results :",res);
       this.router.navigateByUrl('home')
    //this.router.navigate(['../home'] ,{ relativeTo: this.route });
     }, (error : any) => {
+      this.invalidLogin = true;
       console.log(error.error);
     }
     )

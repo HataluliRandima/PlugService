@@ -1,3 +1,5 @@
+  <!--<app-login></app-login>-->
+  
   <!-- Topbar Start -->
   <div class="container-fluid bg-dark py-3">
     <div class="container">
@@ -94,19 +96,22 @@
                     <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" width="100" class="rounded-circle">
                 </div>
                 
-                <div class="text-center mt-3">
-                    <span class="bg-secondary p-1 px-4 rounded text-white">Pro</span>
-                    <h5 class="mt-2 mb-0">Alexender Schidmt</h5>
+                <div *ngFor="let met of mercs" class="text-center mt-3">
+                   <!-- <span class="bg-secondary p-1 px-4 rounded text-white">Pro</span>-->
+                    <h5 class="mt-2 mb-0"> 
+                     {{met.userName}} {{met.userSurname}}
+
+                    </h5>
                     
-                    <div class=" d-flex mt-2"> 
+                    <div *ngFor="let met of mercs" class="d-flex mt-2"> 
                         <div id="container">
-                        <button class="btn1 btn-dark" (click)="goToPage('myprofile') "routerLink="">Edit Profile</button> 
+                        <button class="btn1 btn-dark" routerLink="edit/{{met.userId}}" >Edit Profile</button> 
                     </div>
                         </div> 
-                    <div class="px-4 mt-1">
+                 <!-- routerLink="edit/{{met.userId}}" (click)="goToPage('myprofile') <div class="px-4 mt-1">
                         <p class="fonts">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
                     
-                    </div>
+                    </div>-->
                     
         
                     <div class="buttons">
@@ -145,4 +150,6 @@
         </p>
     </div>
 </div>
+
+
 <!-- Footer End -->

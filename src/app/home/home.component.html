@@ -11,9 +11,9 @@
                 </div>
             </div>
             <div class="col-md-6 text-center text-lg-right">
-                <div class="d-inline-flex align-items-center">
+                <div *ngFor="let met of mercs" class="d-inline-flex align-items-center">
                     <a class="text-white px-3" href="">
-                        <p>Welcome Boy</p>
+                        <p>Welcome  {{met.userName}}</p>
                     </a>
                     <span class="text-white">|</span>
                     <a class="text-white pl-3" href="">
@@ -29,7 +29,11 @@
         </div>
     </div>
 </div>
-
+<div *ngIf="isUserAuthenticated()" style="color:blue;">
+    <h2>
+      YOU ARE LOGGED IN
+    </h2>
+  </div>
 <!-- Topbar End 
 
 <ng-template #content let-c="close" let-d="dismiss">
@@ -65,7 +69,7 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Profile</a>
                         <div class="dropdown-menu rounded-0 m-0">
-                            <a routerLink="/login" class="dropdown-item">Logout</a>
+                            <a *ngIf="isUserAuthenticated()" (click)="logOut()" routerLink="/login" class="dropdown-item">Logout</a>
                             <a routerLink="/profile" class="dropdown-item">Manage Profile</a>
                         </div>
                     </div>

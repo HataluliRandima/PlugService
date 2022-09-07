@@ -101,16 +101,18 @@
         <input
           type="text"
           matInput
-          formControlName="firstName"
-          placeholder="First Name"
+          formControlName="userId"
+          placeholder="User ID"
+          readonly="true"
         />
       </mat-form-field>
       <mat-form-field>
         <input
           type="text"
           matInput
-          formControlName="lastName"
-          placeholder="Last Name"
+          formControlName="userEmail"
+          placeholder="Email Address"
+          readonly="true"
         />
       </mat-form-field>
     </div>
@@ -120,20 +122,43 @@
         <input
           type="text"
           matInput
-          formControlName="displayName"
-          placeholder="Display Name"
+          formControlName="userName"
+          placeholder="First Name"
         />
+        <span *ngIf="userName && userName.invalid && userName.touched" class="error">Please enter name</span>
       </mat-form-field>
       <mat-form-field>
         <input
           type="text"
           matInput
-          formControlName="phone"
-          placeholder="Phone"
+          formControlName="userSurname"
+          placeholder="Last Name"
         />
+        <span *ngIf="userSurname && userSurname.invalid && userSurname.touched" class="error">Please enter phonenumber</span>
       </mat-form-field>
     </div>
+
     <div class="row1">
+      <mat-form-field>
+        <input
+          type="text"
+          matInput
+          formControlName="userAddress"
+        placeholder="Address"
+        />
+        <span *ngIf="userAddress && userAddress.invalid && userAddress.touched" class="error">Please enter address</span>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          type="text"
+          matInput
+          formControlName="userContactdetails"
+          placeholder="Contact Details"
+        />
+        <span *ngIf="userContactdetails && userContactdetails.invalid && userContactdetails.touched" class="error">Please enter phonenumber</span>
+      </mat-form-field>
+    </div>
+    <!-- <div class="row1">
     <mat-form-field>
       <input
         type="text"
@@ -142,10 +167,14 @@
         placeholder="Address"
       />
     </mat-form-field>
-</div>
+</div>-->
     <button type="submit" id="bt1" class="margin-top" mat-raised-button color="primary" >
       Save
     </button>
+    <div class="col-lg-3">
+      <br>
+      <span class={{messageclass}}>{{message}}</span>
+  </div>
   </form>
 </div>
 <br>

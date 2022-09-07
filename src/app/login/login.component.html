@@ -36,6 +36,8 @@
       <div class="center margin-top">
           <button [disabled]="!form.valid " type="submit" mat-raised-button color="primary">Login</button>
       </div>
+      <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username or Password</div>
+      <br>
       <span class="center margin-top">New to our platform? <a class="sign-up-link" routerLink="../register">Sign up!</a></span>
     </form>
   </div>

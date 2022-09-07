@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
@@ -10,6 +10,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
+
+//import { JwtModule } from '@auth0/angular-jwt';
+//import  { JwtModule } from '@avatsaev/angular-jwt';
 
 
 
@@ -25,6 +28,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { ConfrimComponent } from './confrim/confrim.component';
 import { HttpClientModule } from '@angular/common/http';
+import { JwtModule } from '@avatsaev/angular-jwt';
+import { ProfilestaffComponent } from './profilestaff/profilestaff.component';
+import { BookdateComponent } from './bookdate/bookdate.component';
+import { TrackbookComponent } from './trackbook/trackbook.component';
+import { FileuploadComponent } from './fileupload/fileupload.component';
+import { FiledownloadComponent } from './filedownload/filedownload.component';
+//import { JwtModule } from '@auth0/angular-jwt/lib/angular-jwt.module';
+//import { JwtModule } from '@avatsaev/angular-jwt';
+//import { SighinComponent} from './sighin/sighin.component';
+ 
+
+export function tokenGetter()
+{
+  return localStorage.getItem("jwt");
+}
 
 @NgModule({
   declarations: [
@@ -32,11 +50,17 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     BookingComponent,
     ContactComponent,
-    LoginComponent,
+   LoginComponent,
     RegisterComponent,
     ProfileComponent,
     MyprofileComponent,
-    ConfrimComponent
+    ConfrimComponent,
+    ProfilestaffComponent,
+    BookdateComponent,
+    TrackbookComponent,
+    FileuploadComponent,
+    FiledownloadComponent,
+   // SighinComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,9 +74,17 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MatDialogModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    JwtModule.forRoot({
+      config:  {
+      tokenGetter: tokenGetter,
+      whitelistedDomains: ["localhost:7056"],
+      blacklistedRoutes: [""]
+      }
+    })
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

@@ -1,0 +1,102 @@
+<!-- Topbar Start -->
+<div class="container-fluid bg-dark py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center text-lg-left mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center">
+                    <span class="text-white">|</span>
+                    <a class="text-white px-3" href="">Help</a>
+                    <span class="text-white">|</span>
+                    <a class="text-white pl-3" href="">Support</a>
+                </div>
+            </div>
+            <div class="col-md-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                     
+                    <a class="text-white pl-3" href="">
+                         
+                        <button type="button" class="btn btn-primary" >
+                            Notifications<span class="badge bg-danger ms-2">28</span>
+</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Navbar Start -->
+<div class="container-fluid position-relative nav-bar p-0">
+    <div class="container position-relative" style="z-index: 9;">
+        <nav class="navbar navbar-expand-lg bg-secondary navbar-dark py-3 py-lg-0 pl-3 pl-lg-5">
+            <a href="" class="navbar-brand">
+                <h1 class="m-0 display-5 text-white"><span class="text-primary">S</span>ervice Plug</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
+                <div class="navbar-nav ml-auto py-0">
+                    <a routerLink="/home" class="nav-item nav-link ">Home</a>
+                    <a routerLink="/booking" class="nav-item nav-link">Book Merchant</a>
+                    
+                    <!-- <a href="project.html" class="nav-item nav-link">Cancel Booking</a> -->
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Profile</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="blog.html" class="dropdown-item">Logout</a>
+                            <a href="single.html" class="dropdown-item">Manage Profile</a>
+                        </div>
+                    </div>
+                    <a routerLink="/contact" class="nav-item nav-link">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- Navbar End -->
+<br>
+
+<!-- Page Header Start -->
+<div class="container-fluid bg-secondary py-5">
+    <div class="container py-5">
+        <div class="row align-items-center py-4">
+            <div class="col-md-6 text-center text-md-left">
+                <h1 class="mb-4 mb-md-0 text-primary text-uppercase">Profile</h1>
+            </div>
+            <div class="col-md-6 text-center text-md-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="btn btn-outline-primary" href="">Home</a>
+                    <i class="fas fa-angle-double-right text-primary mx-2"></i>
+                    <a class="btn btn-outline-primary disabled" href="">Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+   <div *ngFor="let s of mers" class="j">
+    <h1>{{s.merchName}}  </h1>
+    <h1>{{s.merchSurname}}  </h1>
+    <h1>{{s.merchId}}  </h1>
+    <h1>{{s.merchType}}  </h1>
+    <h1>{{s.merchEmail}}  </h1>
+    <h1>{{s.merchAddress}}  </h1>
+    <h1>{{s.merchContactdetails}}  </h1>
+    <p> </p>
+    <p></p>
+
+</div>
+
+<button class="btn btn-outline-primary px-4">Completed</button>
+                      
+
+<!-- Footer Start -->
+<div class="container-fluid bg-dark text-white py-5 px-sm-3 px-md-5">
+        
+    <div class="container border-top border-secondary pt-5">
+        <p class="m-0 text-center text-white">
+            &copy; <a class="text-white font-weight-bold" href="#">ServicePLug</a>. All Rights Reserved. Designed by
+            <a class="text-white font-weight-bold" href="https://htmlcodex.com">HTML Codex</a>
+        </p>
+    </div>
+</div>
